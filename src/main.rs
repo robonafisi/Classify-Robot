@@ -1,8 +1,7 @@
 [dependencies]
-burn = "0.1"  # Update to the latest version if needed
-burn-tensor = "0.1"  # Update to the latest version if needed
-rand = "0.8"  # For random number generation
-
+burn = "0.1"  
+burn-tensor = "0.1"  
+rand = "0.8"  
 
 
 use burn::tensor::Tensor;
