@@ -39,6 +39,7 @@ impl Module for MLP {
 }
 
 
+//Create synthetic data to run an example
 fn generate_data(num_samples: usize, input_dim: usize) -> (Tensor, Tensor) {
     let mut rng = thread_rng();
     let inputs: Vec<Vec<f64>> = (0..num_samples)
@@ -63,6 +64,7 @@ fn generate_data(num_samples: usize, input_dim: usize) -> (Tensor, Tensor) {
 }
 
 
+// Prepare the data for the model
 fn split_data(inputs: &Tensor, targets: &Tensor, split_ratio: f64) -> ((Tensor, Tensor), (Tensor, Tensor)) {
     let num_samples = inputs.shape()[0];
     let mut indices: Vec<usize> = (0..num_samples).collect();
@@ -80,7 +82,7 @@ fn split_data(inputs: &Tensor, targets: &Tensor, split_ratio: f64) -> ((Tensor, 
     ((train_inputs, train_targets), (val_inputs, val_targets))
 }
 
-
+//Parameters for the ML model
 fn train_model(
     model: &mut MLP,
     train_inputs: &Tensor,
@@ -120,6 +122,7 @@ fn train_model(
         println!("Epoch {}: Validation Loss = {:?}, Accuracy = {:.2}%", epoch, val_loss, accuracy * 100.0);
     }
 }
+
 
 fn main() {
 
